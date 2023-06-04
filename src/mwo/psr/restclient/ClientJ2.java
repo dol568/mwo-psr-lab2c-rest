@@ -7,6 +7,7 @@ import mwo.ttss.Actual;
 import mwo.ttss.Departures;
 import mwo.ttss.Stop;
 
+import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
@@ -169,7 +170,7 @@ public class ClientJ2 {
     /**
      * Wyswietla informacje o odjazdach lub przyjazdach z okreslonego przystanku
      *
-     * @param stopId Id przystanku
+     * @param stopId    Id przystanku
      * @param direction Odjazdy lub przyjazdy
      */
     private void displayDepartures(String stopId, String direction) {
@@ -197,7 +198,7 @@ public class ClientJ2 {
      * Zwraca mape zawierajaca Id i nazwe przystanku na podstawie podanej nazwy przystanku
      *
      * @param stopName Cala lub czesciowa nazwa przystanku
-     * @return  Mapa z Id i nazwa przystanku
+     * @return Mapa z Id i nazwa przystanku
      */
     private Map<String, String> getStopIdAndName(String stopName) {
         System.out.println("\n\n*** Starting test case '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'...");
@@ -224,7 +225,7 @@ public class ClientJ2 {
      * Wyswietla informacje o odjazdach lub przyjazdach dla danego przystanku
      *
      * @param departures Obiekt zawierajacy informacje o odjazdach lub przyjazdach
-     * @param direction Odjazdy lub przyjazdy
+     * @param direction  Odjazdy lub przyjazdy
      */
     private void printer(Departures departures, String direction) {
         String stopDirection = direction.equals("departure") ? "Odjazdy" : "Przyjazdy";
