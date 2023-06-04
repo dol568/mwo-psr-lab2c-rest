@@ -123,7 +123,6 @@ public class ClientJ2 {
                 if (!stop.isEmpty()) {
                     if (stop.size() > 1) {
                         for (Map.Entry<String, String> entry : stop.entrySet()) {
-                            System.out.println();
                             System.out.println("Id: " + entry.getKey() + ", nazwa: " + entry.getValue());
                         }
                         System.out.println("\nPodaj Id przystanku: ");
@@ -174,7 +173,7 @@ public class ClientJ2 {
      * @param direction Odjazdy lub przyjazdy
      */
     private void displayDepartures(String stopId, String direction) {
-        System.out.println("\n*** Starting test case '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'...");
+        System.out.println("*** Starting test case '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'...");
 
         Departures departures = client
                 .target(PASSAGE_INFO_URL)
@@ -201,7 +200,7 @@ public class ClientJ2 {
      * @return Mapa z Id i nazwa przystanku
      */
     private Map<String, String> getStopIdAndName(String stopName) {
-        System.out.println("\n\n*** Starting test case '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'...");
+        System.out.println("*** Starting test case '" + Thread.currentThread().getStackTrace()[1].getMethodName() + "'...");
         Map<String, String> st = new HashMap<>();
         Stop[] stops = client.target(AUTOCOMPLETE_URL)
                 .queryParam("query", stopName)
